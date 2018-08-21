@@ -5,10 +5,11 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "Interfaces/PoweredByLinks.h"
+#include "BaseGoalPowered.h"
 #include "BaseExit.generated.h"
 
 UCLASS()
-class PROJECTCLOUD_API ABaseExit : public AActor, public IPoweredByLinks
+class PROJECTCLOUD_API ABaseExit : public ABaseGoalPowered
 {
     GENERATED_BODY()
     
@@ -21,6 +22,7 @@ protected:
 public:	
     virtual void Tick(float DeltaTime) override;
 
-    virtual void ReactToLink(bool activated) override;
-    
+    virtual void ReactToGoal(FGoalPowerData goalData) override;
+
+    virtual void OnFullyPowered() override;
 };

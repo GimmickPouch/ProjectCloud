@@ -21,7 +21,12 @@ void ABaseExit::Tick(float DeltaTime)
 
 }
 
-void ABaseExit::ReactToLink(bool activated)
+void ABaseExit::ReactToGoal(FGoalPowerData goalData)
 {
+    Super::ReactToGoal(goalData);
+}
 
+void ABaseExit::OnFullyPowered()
+{
+    Super::OnFullyPowered();
 }

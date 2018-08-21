@@ -20,15 +20,21 @@ protected:
 public:	
     virtual void Tick(float DeltaTime) override;
 
-    virtual void HitByProjectile(AActor& projectile);
+    virtual void HitByProjectile(const AActor* projectile);
 
     virtual void AttemptActivation();
 
+protected:
+    virtual void NotifyLinkedComponents(bool poweredStatus);
+
     // Variables
 protected:
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Power Link")
-        TArray<AActor*> _linkedComponents;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Power Settings")
+        TArray<class ABaseGoalPowered*> _linkedComponents;
 
-    bool _bIsActivated;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Power Settings")
+        int _powerIntensity;
+
+    bool _isActivated;
     
 };
