@@ -38,5 +38,6 @@ void AProjectCloudProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherA
     {
         ABaseGoal* goal = Cast<ABaseGoal>(OtherActor);
         goal->HitByProjectile(this);
+        Destroy();
     }
 }

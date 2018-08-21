@@ -14,6 +14,7 @@ void ABaseGoalPowered::BeginPlay()
 {
     Super::BeginPlay();
     
+    _currentGoalPower = 0;
     _isFullyPowered = false;
 }
 
@@ -33,6 +34,7 @@ void ABaseGoalPowered::ReactToGoal(FGoalPowerData goalData)
     if (_currentGoalPower >= _goalPowerNeeded)
     {
         _isFullyPowered = true;
+        OnFullyPowered();
     }
 }
 

@@ -29,7 +29,10 @@ void ABaseGoal::HitByProjectile(const AActor* projectile)
 {
     if (projectile && projectile->IsA(AProjectCloudProjectile::StaticClass()))
     {
-        AttemptActivation();
+        if (!_isActivated)
+        {
+            AttemptActivation();
+        }
     }
 }
 
